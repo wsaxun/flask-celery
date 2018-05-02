@@ -5,24 +5,6 @@ import os
 
 logger = logging.getLogger('debug')
 
-def run_cmd(cmd):
-    '''run command line'''
-    child = subprocess.Popen(
-        cmd,shell=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-    )
-    out,err = child.communicate()
-    # rc = child.returncode
-    # if rc != 0:
-    #     raise RunCommandError('Exec cmd failed : %s'%cmd)
-    # else:
-    #     return str(out,encoding='utf-8')
-    return str(out, encoding='utf-8')
-
-class RunCommandError(Exception):
-    pass
-
 def cur_date():
     '''get year and month'''
     d = datetime.now()
@@ -61,6 +43,4 @@ def setup_logger(root,file_base_name,level=logging.DEBUG,enable_logger=True):
     logger.addHandler(file_handler)
 
 if __name__ == '__main__':
-    r = run_cmd('/usr/openv/netbackup/bin/admincmd/bppllist')
-    print(r)
-
+    pass

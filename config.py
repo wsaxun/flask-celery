@@ -16,7 +16,7 @@ class Dev_Config(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     @classmethod
     def init_app(cls,app):
-        from common.common import cur_timestamp,setup_logger
+        from common.log import cur_timestamp,setup_logger
         import logging
         file_base_name = 'app_{0}.log'.format(cur_timestamp())
         setup_logger(_app_root,file_base_name,level=logging.INFO,enable_logger=False)
@@ -27,7 +27,7 @@ class Dev_Mysql_Config(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     @classmethod
     def init_app(cls,app):
-        from common.common import cur_timestamp,setup_logger
+        from common.log import cur_timestamp,setup_logger
         import logging
         file_base_name = 'app_{0}.log'.format(cur_timestamp())
         setup_logger(_app_root,file_base_name,level=logging.INFO,enable_logger=False)

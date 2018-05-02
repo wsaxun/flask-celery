@@ -1,16 +1,13 @@
-from .tasks import nbu_start_or_stop_task,get_policys_task
 from .task_msg import task_started_msg,task_started_error_msg
 import time
 from .app import app
+from .tasks import test_task
 
 def start_task(task_name,params=None):
     try:
         task = None
-        if task_name == 'nbu_start_or_stop':
-            task = nbu_start_or_stop_task.delay(params)
-        elif task_name == 'get_policys':
-            task = get_policys_task.delay()
-        time.sleep(0.5)
+        if task_name == 'test_task':
+            task = test_task.delay(params)
         return task_started_msg(task.id)
     except Exception as ex:
         return task_started_error_msg(ex)
